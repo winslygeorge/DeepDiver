@@ -2,6 +2,7 @@
 $data = [];
 if($_GET['index']){
 
+    if($_GET['index'] != "undefined"){
     $websearchContent = $_GET['index'];
 
  
@@ -55,5 +56,7 @@ echo $myArray[1];
 
 
 <?php
-}}
+}}else{
+        echo "No search Done";
+    }}
 ?>
