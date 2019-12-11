@@ -2,6 +2,8 @@
 $data = [];
 if($_GET['index']){
 
+    if($_GET['index'] != "undefined"){
+    
     $websearchContent = "is ".$_GET['index']."dangerous to human being";
 
  
@@ -54,5 +56,7 @@ echo $myArray[1];
 ?>
 
 <?php
-}}
+}}else{
+     echo "No search done";   
+    }}
 ?>
