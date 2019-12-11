@@ -1,5 +1,8 @@
 
-
+function loadercs(){
+	
+	document.getElementById("reqloader").setAttribute("class", "showreqloader");
+}
 
 //creating a blob image from webcam snapshot 
 
@@ -174,17 +177,12 @@ function sendRequest(file, key) {
     request.open("POST", baseUri);
     request.setRequestHeader('Ocp-Apim-Subscription-Key', key);
     request.addEventListener('load', handleResponse);
+	request.addEventListener("load", loadercs);
 	
     request.send(formd);
 }
 
 function handleResponse() {
-	
-if(this.readyState == 0 || this.readyState == 1 || this.readyState == 2 || this.readyState == 3){
-		
-		document.getElementById("reqloader").setAttribute("class", "showreqloader");
-		
-	}
     if(this.status !== 200){
         alert("Error calling Bing Visual Search. See console log for details.");
 	    
@@ -205,7 +203,7 @@ if(this.readyState == 0 || this.readyState == 1 || this.readyState == 2 || this.
                 return;
     }else{
 	    
-	    document.getElementById("showreqloader").setAttribute("class", "reqloader");
+	  
 jsonData = JSON.parse(this.responseText);
 var nameData = "";
 for(var x = 0; x < jsonData.tags.length; x++){
@@ -299,42 +297,32 @@ document.getElementById("namtag").innerHTML = "<h3>"+keyWord +"</h3>";
 
    htt.onreadystatechange = function(){
 	   
-	   if(this.readyState == 0 || this.readyState == 1 || this.readyState == 2 || this.readyState == 3){
-		
-		document.getElementById("reqloader").setAttribute("class", "showreqloader");
-		
-	}
-
       if(htt.readyState == 4 && htt.status == 200){
 	      
-	      document.getElementById("showreqloader").setAttribute("class", "reqloader");
+	   
 	            
 document.getElementById("dang").innerHTML = "<h3>"+this.responseText+"</h3>";
       }
    }
 
    htt.open( "GET","js/websearch.php?index="+keyWord, true);
+	htt.addEventListener("load", loadercs);
    htt.send()
 
    var ph = new XMLHttpRequest();
 
 ph.onreadystatechange = function(){
 
-	if(this.readyState == 0 || this.readyState == 1 || this.readyState == 2 || this.readyState == 3){
-		
-		document.getElementById("reqloader").setAttribute("class", "showreqloader");
-		
-	}
 		
     if(ph.readyState == 4 && ph.status == 200){
 	    
-	 document.getElementById("showreqloader").setAttribute("class", "reqloader");
-
+	
         document.getElementById("desc").innerHTML = "<h3>"+this.responseText+"</h3>";
 
     }
 }
 ph.open("GET", "js/websearch2.php?index="+keyWord, true);
+	ph.addEventListener("load", loadercs);
 ph.send();
 }
 
