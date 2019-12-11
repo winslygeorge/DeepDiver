@@ -55,7 +55,7 @@
                 <li><a class="js-scroll-trigger" href="#home">Home</a></li>
                 <li><a class="js-scroll-trigger" href="#about">About Me</a></li>
                 <li><a class="js-scroll-trigger" href="#gallery">Gallery</a></li>
-                <li><a class="js-scroll-trigger" href="#services">Service</a></li>
+                <li><a class="js-scroll-trigger" href="#service">Service</a></li>
 			
 				<li><a class="js-scroll-trigger" href="#contact">Contact Me</a></li>
             </ul>
@@ -101,31 +101,23 @@
             <div class="row">
                 <div class="col-md-6">
 			
-        <div id = "webcamera">        	
+        <div id = "webcamera">    
+	<div class = "chooseFile">
         <input type = "file" name = "imagesTag" id = "uploadimage" onchange="loadFile(event);">
-
-
-<input type ="submit" value = "Analyze" id = "btns"  onclick = "handleQuery();">
-
+		</div>
+		<div>
+        <input type ="submit" value = "Analyze" id = "btns"  onclick = "handleQuery();">
+		</div>
 <button id = "cpa" onclick="captureAnalyze();">Capture And Analyze</button>
+		
                     <div class="message-box">                        
                        
 
-<div id="my_camera"></div>
+         <div id="my_camera"></div>
 
-<input type=button value="Take Snapshot" onClick="take_snapshot();" id = "snap">
-<div>
-                            </div>
-                            
-                <div id = "phonecam">
-                        -->
-<video id="video" class = "hidecamDis" width="320" height="480" autoplay></video>
-<button id="snap">Snap Photo</button>
-<canvas id="canvas" width="640" height="480"></canvas>
-<input type="file" accept="image/*" capture="camera" />
-                            </div>
- 
-                
+         <input type=button value="Take Snapshot" onClick="take_snapshot();" id = "snap">
+</div>
+                            </div>                
 			</div>			
                     </div><!-- end messagebox -->
                 </div><!-- end col -->
