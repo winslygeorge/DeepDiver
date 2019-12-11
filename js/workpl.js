@@ -87,7 +87,18 @@ blob = b64toBlob(realData, contentType);
 	
         // Clear out the response from the last query.
         while (document.getElementById("responseSection").childElementCount > 0) {
-           document.getElementById("responseSection").removeChild(document.getElementById("responseSection").lastChild);
+         document.getElementById("responseSection").removeChild(document.getElementById("responseSection").lastChild);
+        }
+	    
+	            while ( document.getElementById("desc").childElementCount > 0) {
+             document.getElementById("desc").removeChild( document.getElementById("desc").lastChild);
+        }
+	       while ( document.getElementById("namtag").childElementCount > 0) {
+             document.getElementById("namtag").removeChild( document.getElementById("namtag").lastChild);
+        }
+	    
+	       while ( document.getElementById("dang").childElementCount > 0) {
+             document.getElementById("dang").removeChild( document.getElementById("dang").lastChild);
         }
 
 sendRequest(blob, "181040863e064c118719500db8858148");
@@ -163,10 +174,17 @@ function sendRequest(file, key) {
     request.open("POST", baseUri);
     request.setRequestHeader('Ocp-Apim-Subscription-Key', key);
     request.addEventListener('load', handleResponse);
+	
     request.send(formd);
 }
 
 function handleResponse() {
+	
+if(this.readyState == 0 || this.readyState == 1 || this.readyState == 2 || this.readyState == 3){
+		
+		document.getElementById("reqloader").setAttribute("class", "showreqloader");
+		
+	}
     if(this.status !== 200){
         alert("Error calling Bing Visual Search. See console log for details.");
 	    
@@ -186,6 +204,8 @@ function handleResponse() {
         }
                 return;
     }else{
+	    
+	    document.getElementById("showreqloader").setAttribute("class", "reqloader");
 jsonData = JSON.parse(this.responseText);
 var nameData = "";
 for(var x = 0; x < jsonData.tags.length; x++){
@@ -278,8 +298,16 @@ document.getElementById("namtag").innerHTML = "<h3>"+keyWord +"</h3>";
    var htt =  new XMLHttpRequest();
 
    htt.onreadystatechange = function(){
+	   
+	   if(this.readyState == 0 || this.readyState == 1 || this.readyState == 2 || this.readyState == 3){
+		
+		document.getElementById("reqloader").setAttribute("class", "showreqloader");
+		
+	}
 
       if(htt.readyState == 4 && htt.status == 200){
+	      
+	      document.getElementById("showreqloader").setAttribute("class", "reqloader");
 	            
 document.getElementById("dang").innerHTML = "<h3>"+this.responseText+"</h3>";
       }
@@ -292,9 +320,15 @@ document.getElementById("dang").innerHTML = "<h3>"+this.responseText+"</h3>";
 
 ph.onreadystatechange = function(){
 
+	if(this.readyState == 0 || this.readyState == 1 || this.readyState == 2 || this.readyState == 3){
+		
+		document.getElementById("reqloader").setAttribute("class", "showreqloader");
+		
+	}
+		
     if(ph.readyState == 4 && ph.status == 200){
 	    
-	 
+	 document.getElementById("showreqloader").setAttribute("class", "reqloader");
 
         document.getElementById("desc").innerHTML = "<h3>"+this.responseText+"</h3>";
 
