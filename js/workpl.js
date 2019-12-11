@@ -1,39 +1,4 @@
 
-// Grab elements, create settings, etc.
-var video = document.getElementById('video');
-var camSes = document.getElementById("phonecam");
-// Showing the camera session on display screen
-function choosePhonecam(){
-if(camSes.getAttribute("class") == "hidecamDis"){
-camSes.setAttribute("class", "showcamDis");
-}else{
-camSes.setAttribute("class", "hidecamDis");	
-}
-}
-
-
-// Get access to the camera!
-// Prefer camera resolution nearest to 1280x720.
-var constraints = {video: { width: 1280, height: 720 } }; 
-
-navigator.mediaDevices.getUserMedia(constraints)
-.then(function(mediaStream) {
-  var video = document.querySelector('video');
-  video.srcObject = mediaStream;
-  video.onloadedmetadata = function(e) {
-    video.play();
-  };
-})
-.catch(function(err) { console.log(err.name + ": " + err.message); }); // always check for errors at the end.
-// Elements for taking the snapshot
-var canvas = document.getElementById('canvas');
-var context = canvas.getContext('2d');
-var video = document.getElementById('video');
-
-// Trigger photo take
-document.getElementById("snap").addEventListener("click", function() {
-	context.drawImage(video, 0, 0, 320, 480);
-});
 
 
 //creating a blob image from webcam snapshot 
@@ -105,15 +70,13 @@ document.getElementById('results').innerHTML =
 
 fdat = data_uri;
 
-//conver fdat ro a form data
-
-console.log(fdat);
+//conver fdat to a form data
 var ImageURL = fdat;
 var block = ImageURL.split(";");
 // Get the content type of the image
-var contentType = block[0].split(":")[1];// In this case "image/gif"
+var contentType = block[0].split(":")[1];
 // get the real base64 content of the file
-var realData = block[1].split(",")[1];// In this case "R0lGODlhPQBEAPeoAJosM...."
+var realData = block[1].split(",")[1];
 
 // Convert it to a blob to upload
 blob = b64toBlob(realData, contentType);
@@ -128,12 +91,14 @@ sendRequest(blob, "181040863e064c118719500db8858148");
 
 
 
-
+//variables
 var counts = {};
 var keys = [];
 var jsonTextSearch;
 
 var dataText;
+
+// a function to handle the first bing image visual search;
  function handleQuery(){
 
     
@@ -176,11 +141,6 @@ var dataText;
 
             alert("another method is choosen or no file is choosen");
         }
-       
-
-
-    
-
 }
 
 function sendRequest(file, key) {
@@ -203,25 +163,28 @@ function sendRequest(file, key) {
 function handleResponse() {
     if(this.status !== 200){
         alert("Error calling Bing Visual Search. See console log for details.");
-        console.log(this.responseText);
-
-     
-        
-        return;
+	    
+	      while (responseDiv.childElementCount > 0) {
+            responseDiv.removeChild(responseDiv.lastChild);
+        }
+	    
+	            while ( document.getElementById("desc").childElementCount > 0) {
+             document.getElementById("desc").removeChild( document.getElementById("desc").lastChild);
+        }
+	       while ( document.getElementById("namtag").childElementCount > 0) {
+             document.getElementById("namtag").removeChild( document.getElementById("namtag").lastChild);
+        }
+	    
+	       while ( document.getElementById("dang").childElementCount > 0) {
+             document.getElementById("dang").removeChild( document.getElementById("dang").lastChild);
+        }
+                return;
     }else{
-
-
-        jsonData = JSON.parse(this.responseText);
+jsonData = JSON.parse(this.responseText);
 var nameData = "";
 for(var x = 0; x < jsonData.tags.length; x++){
-
-    let tag = jsonData.tags[x];
-
-
-
-     var dataName = dataName + " " + jsonData.tags[x].displayName;
-
-
+let tag = jsonData.tags[x];
+ var dataName = dataName + " " + jsonData.tags[x].displayName;
 for(var g = 0; g < tag.actions.length; g++){
 
         let action = tag.actions[g];
@@ -233,29 +196,16 @@ for(var g = 0; g < tag.actions.length; g++){
             for(var r = 0; r < dataValue.length; r++){
                 document.querySelector("#responseSection").innerHTML += "<div class ="+"gallery-single fix"+"><img  src = "+dataValue[r]['thumbnailUrl']+"></div>";
 
-       if(r >= 6 ){
+       if(r >= 5){
 
         break;
        }
             }
         }
-
-
-        
-
-        
-     }
-
-
-
 }
-
-console.log(JSON.stringify(dataName));
-
+   }
 
 var arrName = dataName.split(/\s/);
-
-console.log(arrName);
 for(var w = 0; w < arrName.length; w++){
 
 var token = arrName[w];
@@ -306,7 +256,6 @@ if(keyWord === "undefined" ||keyWord === undefined|| keyWord == null|| keyWord =
  if(keys.length > 2){
 
     keyWord = keys[2]+" "+keys[3];
-console.log(keyWord);
 
  }else{
 
@@ -315,10 +264,9 @@ console.log(keyWord);
 }else{
 
     keyWord = keys[3] +" "+ keyWord;
-    console.log(keyWord);
-
 }
 
+	
 document.getElementById("namtag").innerHTML = "<h3>"+keyWord +"</h3>";
 
    var htt =  new XMLHttpRequest();
@@ -326,11 +274,7 @@ document.getElementById("namtag").innerHTML = "<h3>"+keyWord +"</h3>";
    htt.onreadystatechange = function(){
 
       if(htt.readyState == 4 && htt.status == 200){
-
-//jsonTextSearch = JSON.parse(this.responseText);
-//console.log(jsonTextSearch);
-console.log(this.responseText);
-
+	            
 document.getElementById("dang").innerHTML = "<h3>"+this.responseText+"</h3>";
       }
    }
@@ -343,10 +287,10 @@ document.getElementById("dang").innerHTML = "<h3>"+this.responseText+"</h3>";
 ph.onreadystatechange = function(){
 
     if(ph.readyState == 4 && ph.status == 200){
+	    
+	 
 
         document.getElementById("desc").innerHTML = "<h3>"+this.responseText+"</h3>";
-
-        console.log(this.responseText);
 
     }
 }
