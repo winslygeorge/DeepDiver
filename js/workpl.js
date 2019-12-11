@@ -1,6 +1,16 @@
 
 // Grab elements, create settings, etc.
 var video = document.getElementById('video');
+var camSes = document.getElementById("phonecam");
+// Showing the camera session on display screen
+function choosePhonecam(){
+if(camSes.getAttribute("class") == "hidecamDis"){
+camSes.setAttribute("class", "showcamDis");
+}else{
+camSes.setAttribute("class", "hidecamDis");	
+}
+}
+
 
 // Get access to the camera!
 // Prefer camera resolution nearest to 1280x720.
@@ -23,7 +33,6 @@ var video = document.getElementById('video');
 // Trigger photo take
 document.getElementById("snap").addEventListener("click", function() {
 	context.drawImage(video, 0, 0, 320, 480);
-	video.setAttribute("class", "showcamDisp");
 });
 
 
