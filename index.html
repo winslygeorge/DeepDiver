@@ -99,8 +99,8 @@
             <div class="row">
                 <div class="col-md-6">
 
-                	
-                		<input type = "file" name = "imagesTag" id = "uploadimage" onchange="loadFile(event);">
+        <div id = "webcamera">        	
+        <input type = "file" name = "imagesTag" id = "uploadimage" onchange="loadFile(event);">
 
 
 <input type ="submit" value = "Analyze" id = "btns"  onclick = "handleQuery();">
@@ -113,7 +113,15 @@
 
 <input type=button value="Take Snapshot" onClick="take_snapshot();" id = "snap">
 <div>
-
+                            </div>
+                            
+                <div id = "phonecam">
+                        -->
+<video id="video" width="320" height="480" autoplay></video>
+<button id="snap">Snap Photo</button>
+<canvas id="canvas" width="640" height="480"></canvas>
+<input type="file" accept="image/*" capture="camera" />
+                            </div>
  
                 
 			</div>			
