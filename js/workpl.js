@@ -83,6 +83,12 @@ blob = b64toBlob(realData, contentType);
 
 // Create a FormData and append the file with "image" as parameter name
 //end of conversion
+	
+	
+        // Clear out the response from the last query.
+        while (document.getElementById("responseSection").childElementCount > 0) {
+           document.getElementById("responseSection").removeChild(document.getElementById("responseSection").lastChild);
+        }
 
 sendRequest(blob, "181040863e064c118719500db8858148");
 
@@ -123,8 +129,8 @@ var dataText;
         var responseDiv = document.getElementById('output');
     
         // Clear out the response from the last query.
-        while (responseDiv.childElementCount > 0) {
-            responseDiv.removeChild(responseDiv.lastChild);
+        while (document.getElementById("responseSection").childElementCount > 0) {
+           document.getElementById("responseSection").removeChild(document.getElementById("responseSection").lastChild);
         }
     
         // Send the request to Bing to get insights about the image.
@@ -164,8 +170,8 @@ function handleResponse() {
     if(this.status !== 200){
         alert("Error calling Bing Visual Search. See console log for details.");
 	    
-	      while (responseDiv.childElementCount > 0) {
-            responseDiv.removeChild(responseDiv.lastChild);
+	      while (document.getElementById("responseSection").childElementCount > 0) {
+         document.getElementById("responseSection").removeChild(document.getElementById("responseSection").lastChild);
         }
 	    
 	            while ( document.getElementById("desc").childElementCount > 0) {
