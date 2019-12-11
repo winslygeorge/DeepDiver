@@ -35,6 +35,15 @@ html, body{
 	height: 100%;
 }
 
+.hidecamDis{
+
+	display: none;
+}
+
+.showcamDis{
+display: block;	
+}
+
 body.demos .section {
     background: url(images/bg.png) repeat top center #f2f3f5;
 }
