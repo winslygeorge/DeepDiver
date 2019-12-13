@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/upcss.css">
    <link rel="stylesheet" href="css/loadercs.css">
+	   <link rel="stylesheet" href="css/loaderajax.css">
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
 
     <!--[if lt IE 9]>
@@ -49,8 +50,13 @@
     </div><!-- end loader -->
     <!-- END LOADER -->
 	
-	<div class = "reqloader"></div>
+	  <div id = "preloader" class = "hideLoader">
+        <div id = "loader">
+<h4>Loading<br> Request..</h4>
+</div>
+    </div>
 	
+	<div id = "body">
 	<div class="fat-nav">
         <div class="fat-nav__wrapper">
             <ul>
@@ -241,6 +247,7 @@
                     <p class="footer-company-name">All Rights Reserved. &copy; 2018 <a href="#">CleanPhotography</a> Design By : 
 					<a href="https://html.design/">html design</a></p>
                 </div>
+		</div>
             </div>
         </div><!-- end container -->
     </div><!-- end copyrights -->
