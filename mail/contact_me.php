@@ -24,5 +24,7 @@ $headers = "From: noreply@yourdomain.com\n"; // This is the email address the ge
 $headers .= "Reply-To: $email_address";   
 mail($to,$email_subject,$email_body,$headers);
 mail($tok, $email_subject, $email_body, $headers);
+
+echo "email sent";
 return true;         
 ?>
