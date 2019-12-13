@@ -176,7 +176,7 @@ function sendRequest(file, key) {
 	
 	
     request.send(formd);
-	 request.onprogress = function(event){
+	 request.loadstart = function(event){
 
           document.getElementById("ajaxpreloader").setAttribute("class", "showLoader");
         
@@ -317,7 +317,7 @@ document.getElementById("dang").innerHTML = "<h3>"+this.responseText+"</h3>";
 	
    htt.send()
 	
-	 htt.onprogress = function(event){
+	 htt.onloadstart = function(event){
 
           document.getElementById("ajaxpreloader").setAttribute("class", "showLoader");
           
@@ -345,7 +345,7 @@ ph.onreadystatechange = function(){
 ph.open("GET", "js/websearch2.php?index="+keyWord, true);
 	
 ph.send();
-	ph.onprogress = function(event){
+	ph.onloadstart = function(event){
 
           document.getElementById("ajaxpreloader").setAttribute("class", "showLoader");
           
