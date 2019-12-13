@@ -23,7 +23,7 @@ var param = {
   
 }
 
-xht.open("POST", "../mail.mail.php", true);
+xht.open("POST", "../mail/contact_me.php", true);
 xht.setRequestHeader("Content-type", "application/json");
 xht.send(param);
 xht.onerror = function(){
