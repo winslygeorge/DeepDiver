@@ -181,13 +181,13 @@ function sendRequest(file, key) {
           document.getElementById("ajaxpreloader").setAttribute("class", "showLoader");
         
     }
-  /*  request.onloadend = function(event){
+ request.onloadend = function(event){
 
         document.getElementById("ajaxpreloader").setAttribute("class", "hideLoader");
-        document.getElementById("body").setAttribute("class", "showLoader");
+       // document.getElementById("body").setAttribute("class", "showLoader");
 
         alert("Request sent and loaded successfully");
-    }*/
+    }
 }
 
 function handleResponse() {
@@ -317,18 +317,18 @@ document.getElementById("dang").innerHTML = "<h3>"+this.responseText+"</h3>";
 	
    htt.send()
 	
-	 /*htt.onprogress = function(event){
+	 htt.onprogress = function(event){
 
           document.getElementById("ajaxpreloader").setAttribute("class", "showLoader");
           
     }
-  /*  htt.onloadend = function(event){
+  htt.onloadend = function(event){
 
         document.getElementById("ajaxpreloader").setAttribute("class", "hideLoader");
       
 
         alert("Request sent and loaded successfully");
-    }*/
+    }
 
    var ph = new XMLHttpRequest();
 
@@ -345,18 +345,18 @@ ph.onreadystatechange = function(){
 ph.open("GET", "js/websearch2.php?index="+keyWord, true);
 	
 ph.send();
-	/* ph.onprogress = function(event){
+	ph.onprogress = function(event){
 
           document.getElementById("ajaxpreloader").setAttribute("class", "showLoader");
           
     }
-  /*  ph.onloadend = function(event){
+   ph.onloadend = function(event){
 
         document.getElementById("ajaxpreloader").setAttribute("class", "hideLoader");
        
 
         alert("Request sent and loaded successfully");
-    }*/
+    }
 }
 
 
