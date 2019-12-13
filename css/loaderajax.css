@@ -1,0 +1,55 @@
+ <style>
+    #preloader{
+
+        width: inherit;
+        height: inherit;
+padding-left: 35em;
+padding-top: 10em;
+padding-bottom: 10em;
+        }
+    #loader{
+ width: 9em;
+ height: 8em;
+        border-top: 10px solid skyblue;
+        border-left: 10px solid red;
+        border-right: 10px solid green;
+        border-bottom: 10px solid blueviolet;
+        
+        border-radius: 4em; 
+        color:cornsilk;
+        text-align: center;
+
+        transition:ease-in-out;
+        transform: rotate(0deg);
+
+        transition-duration: 3s;
+        
+            animation-name: loaderspin;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+        
+    }
+
+.hideLoader{
+
+    display: none;
+}
+.showLoader{
+
+    display: block;
+}
+    #preloader{
+
+        background-color: black;
+        opacity: 0.8;
+    }
+
+    @keyframes loaderspin {
+
+from{transform: rotate(0deg);}
+to{transform: rotate(360deg);}
+
+        
+    }
+
+    </style>
