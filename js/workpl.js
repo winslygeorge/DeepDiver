@@ -178,12 +178,12 @@ function sendRequest(file, key) {
     request.send(formd);
 	 request.onprogress = function(event){
 
-          document.getElementById("preloader").setAttribute("class", "showLoader");
+          document.getElementById("ajaxpreloader").setAttribute("class", "showLoader");
           document.getElementById("body").setAttribute("class", "hideLoader");
     }
     request.onloadend = function(event){
 
-        document.getElementById("preloader").setAttribute("class", "hideLoader");
+        document.getElementById("ajaxpreloader").setAttribute("class", "hideLoader");
         document.getElementById("body").setAttribute("class", "showLoader");
 
         alert("Request sent and loaded successfully");
@@ -319,13 +319,13 @@ document.getElementById("dang").innerHTML = "<h3>"+this.responseText+"</h3>";
 	
 	 htt.onprogress = function(event){
 
-          document.getElementById("preloader").setAttribute("class", "showLoader");
-          document.getElementById("body").setAttribute("class", "hideLoader");
+          document.getElementById("ajaxpreloader").setAttribute("class", "showLoader");
+          
     }
     htt.onloadend = function(event){
 
-        document.getElementById("preloader").setAttribute("class", "hideLoader");
-        document.getElementById("body").setAttribute("class", "showLoader");
+        document.getElementById("ajaxpreloader").setAttribute("class", "hideLoader");
+      
 
         alert("Request sent and loaded successfully");
     }
@@ -347,13 +347,13 @@ ph.open("GET", "js/websearch2.php?index="+keyWord, true);
 ph.send();
 	 ph.onprogress = function(event){
 
-          document.getElementById("preloader").setAttribute("class", "showLoader");
-          document.getElementById("body").setAttribute("class", "hideLoader");
+          document.getElementById("ajaxpreloader").setAttribute("class", "showLoader");
+          
     }
     ph.onloadend = function(event){
 
-        document.getElementById("preloader").setAttribute("class", "hideLoader");
-        document.getElementById("body").setAttribute("class", "showLoader");
+        document.getElementById("ajaxpreloader").setAttribute("class", "hideLoader");
+       
 
         alert("Request sent and loaded successfully");
     }
