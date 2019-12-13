@@ -10,10 +10,10 @@ alert("message sent successfully");
 
 }
 }
- var name = document.getElementById("name").value();
-      var email =  document.getElementById("email").value();
-      var phone =  document.getElementById("phone").value();
-      var message =  document.getElementById("message").value();
+ var name = document.getElementById("name").value;
+      var email =  document.getElementById("email").value;
+      var phone =  document.getElementById("phone").value;
+      var message =  document.getElementById("message").value;
 var param = {
   
   "name": name,
