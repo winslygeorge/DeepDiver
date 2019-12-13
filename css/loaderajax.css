@@ -1,5 +1,5 @@
  <style>
-    #preloader{
+    #ajaxpreloader{
 
         width: inherit;
         height: inherit;
@@ -7,7 +7,7 @@ padding-left: 35em;
 padding-top: 10em;
 padding-bottom: 10em;
         }
-    #loader{
+    #ajaxloader{
  width: 9em;
  height: 8em;
         border-top: 10px solid skyblue;
@@ -38,7 +38,7 @@ padding-bottom: 10em;
 
     display: block;
 }
-    #preloader{
+    #ajaxpreloader{
 
         background-color: black;
         opacity: 0.8;
