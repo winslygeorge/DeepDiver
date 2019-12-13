@@ -173,7 +173,7 @@ function sendRequest(file, key) {
     request.open("POST", baseUri);
     request.setRequestHeader('Ocp-Apim-Subscription-Key', key);
     request.addEventListener('load', handleResponse);
-	request.addEventListener("load", loadercs);
+	
 	
     request.send(formd);
 	 request.onprogress = function(event){
