@@ -176,7 +176,7 @@ function sendRequest(file, key) {
 	
 	
     request.send(formd);
-	 /*request.onprogress = function(event){
+	 request.onprogress = function(event){
 
           document.getElementById("ajaxpreloader").setAttribute("class", "showLoader");
         
