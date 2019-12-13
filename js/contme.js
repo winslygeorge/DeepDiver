@@ -1,6 +1,6 @@
 function sendMessage(){
 
-var xht = new XMLHTTPrequest();
+var xht = new XMLHttpRequest();
 
 xht.onreadystatechange = function(){
 
@@ -16,10 +16,10 @@ alert("message sent successfully");
       var message =  document.getElementById("message").value();
 var param = {
   
-  name: name,
-  email: email,
-  phone: phone,
-  message: message
+  "name": name,
+  "email": email,
+  "phone": phone,
+  "message": message
   
 }
 
