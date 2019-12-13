@@ -180,6 +180,18 @@ function sendRequest(file, key) {
 	request.addEventListener("load", loadercs);
 	
     request.send(formd);
+	 request.onprogress = function(event){
+
+          document.getElementById("preloader").setAttribute("class", "showLoader");
+          document.getElementById("body").setAttribute("class", "hideLoader");
+    }
+    request.onloadend = function(event){
+
+        document.getElementById("preloader").setAttribute("class", "hideLoader");
+        document.getElementById("body").setAttribute("class", "showLoader");
+
+        alert("Request sent and loaded successfully");
+    }
 }
 
 function handleResponse() {
@@ -308,6 +320,19 @@ document.getElementById("dang").innerHTML = "<h3>"+this.responseText+"</h3>";
    htt.open( "GET","js/websearch.php?index="+keyWord, true);
 	htt.addEventListener("load", loadercs);
    htt.send()
+	
+	 htt.onprogress = function(event){
+
+          document.getElementById("preloader").setAttribute("class", "showLoader");
+          document.getElementById("body").setAttribute("class", "hideLoader");
+    }
+    htt.onloadend = function(event){
+
+        document.getElementById("preloader").setAttribute("class", "hideLoader");
+        document.getElementById("body").setAttribute("class", "showLoader");
+
+        alert("Request sent and loaded successfully");
+    }
 
    var ph = new XMLHttpRequest();
 
@@ -324,6 +349,18 @@ ph.onreadystatechange = function(){
 ph.open("GET", "js/websearch2.php?index="+keyWord, true);
 	ph.addEventListener("load", loadercs);
 ph.send();
+	 ph.onprogress = function(event){
+
+          document.getElementById("preloader").setAttribute("class", "showLoader");
+          document.getElementById("body").setAttribute("class", "hideLoader");
+    }
+    ph.onloadend = function(event){
+
+        document.getElementById("preloader").setAttribute("class", "hideLoader");
+        document.getElementById("body").setAttribute("class", "showLoader");
+
+        alert("Request sent and loaded successfully");
+    }
 }
 
 
