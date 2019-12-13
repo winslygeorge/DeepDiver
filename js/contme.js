@@ -14,18 +14,10 @@ alert("message sent successfully"+ this.responseText);
       var email =  document.getElementById("email").value;
       var phone =  document.getElementById("phone").value;
       var message =  document.getElementById("message").value;
-var param = {
-  
-  "name": name,
-  "email": email,
-  "phone": phone,
-  "message": message
-  
-}
+var param = "?name="+name+"&email="+email+"&phone="+phone+"&message="+message;
 
-xht.open("POST", "../mail/contact_me.php", true);
-xht.setRequestHeader("Content-type", "application/json");
-xht.send(param);
+xht.open("GET", "../mail/contact_me.php"+param, true);
+xht.send();
 xht.onerror = function(){
 alert("The meassage was not sent successfully");
 }
