@@ -178,13 +178,12 @@ function sendRequest(file, key) {
     request.send(formd);
 	 request.loadstart = function(event){
 
-          document.getElementById("ajaxpreloader").setAttribute("class", "showLoader");
+       alert("Sending Request....");
         
     }
  request.onloadend = function(event){
 
-        document.getElementById("ajaxpreloader").setAttribute("class", "hideLoader");
-       // document.getElementById("body").setAttribute("class", "showLoader");
+   
 
         alert("Request sent and loaded successfully");
     }
@@ -319,12 +318,11 @@ document.getElementById("dang").innerHTML = "<h3>"+this.responseText+"</h3>";
 	
 	 htt.onloadstart = function(event){
 
-          document.getElementById("ajaxpreloader").setAttribute("class", "showLoader");
+             alert("Sending Request....");
           
     }
   htt.onloadend = function(event){
 
-        document.getElementById("ajaxpreloader").setAttribute("class", "hideLoader");
       
 
         alert("Request sent and loaded successfully");
@@ -347,12 +345,11 @@ ph.open("GET", "js/websearch2.php?index="+keyWord, true);
 ph.send();
 	ph.onloadstart = function(event){
 
-          document.getElementById("ajaxpreloader").setAttribute("class", "showLoader");
+           alert("Sending Request....");
           
     }
    ph.onloadend = function(event){
 
-        document.getElementById("ajaxpreloader").setAttribute("class", "hideLoader");
        
 
         alert("Request sent and loaded successfully");
