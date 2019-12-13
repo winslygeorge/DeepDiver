@@ -6,7 +6,7 @@ xht.onreadystatechange = function(){
 
 if(xht.readyState == 4 && xht.status == 200){
 
-alert("message sent successfully");
+alert("message sent successfully"+ this.responseText);
 
 }
 }
