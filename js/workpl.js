@@ -1,8 +1,4 @@
 
-function loadercs(){
-	
-	document.getElementById("reqloader").setAttribute("class", "showreqloader");
-}
 
 //creating a blob image from webcam snapshot 
 
