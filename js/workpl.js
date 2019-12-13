@@ -314,7 +314,7 @@ document.getElementById("dang").innerHTML = "<h3>"+this.responseText+"</h3>";
    }
 
    htt.open( "GET","js/websearch.php?index="+keyWord, true);
-	htt.addEventListener("load", loadercs);
+	
    htt.send()
 	
 	 /*htt.onprogress = function(event){
@@ -343,7 +343,7 @@ ph.onreadystatechange = function(){
     }
 }
 ph.open("GET", "js/websearch2.php?index="+keyWord, true);
-	ph.addEventListener("load", loadercs);
+	
 ph.send();
 	/* ph.onprogress = function(event){
 
