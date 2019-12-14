@@ -354,6 +354,33 @@ ph.send();
 
         alert("Request sent and loaded successfully");
     }
+	
+	var hp = new XMLHttpRequest();
+
+hp.onreadystatechange = function(){
+
+		
+    if(hp.readyState == 4 && hp.status == 200){
+	    
+	
+        document.getElementById("delter").innerHTML = "<h3>"+this.responseText+"</h3>";
+
+    }
+}
+hp.open("GET", "js/deal.php?index="+keyWord, true);
+	
+hp.send();
+	ph.onloadstart = function(event){
+
+           alert("Sending Request....");
+          
+    }
+   hp.onloadend = function(event){
+
+       
+
+        alert("Request sent and loaded successfully");
+    }
 }
 
 
